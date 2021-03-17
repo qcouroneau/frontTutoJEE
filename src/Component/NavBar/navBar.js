@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 
 import {
     Collapse,
@@ -15,6 +15,8 @@ import {
     NavbarText
   } from 'reactstrap';
 
+import Login from '../Login/login'
+
 function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
   
@@ -23,35 +25,32 @@ function NavBar() {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Home</NavbarBrand>
+          <NavbarBrand href="/">Acceuil</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink href="/tutoriel">Tutoriel</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/qcouroneau/frontTutoJEE">GitHub</NavLink>
-              </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Compte
+                  Tutoriel
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
-                    Option
+                  <DropdownItem href="/tutoriel/Tuto1">
+                    Tuto 1 :
                   </DropdownItem>
-                  <DropdownItem>
-                    Option 2
+                  <DropdownItem href="/tutoriel/Tuto2">
+                    Tuto 2 : 
                   </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
+                  <DropdownItem href="/tutoriel/Tuto3">
+                    Tuto 3 :
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+              <NavItem>
+                <NavLink href="https://github.com/qcouroneau/frontTutoJEE">GitHub</NavLink>
+              </NavItem>
             </Nav>
-            <NavbarText>Simple Text</NavbarText>
+            <Login />
           </Collapse>
         </Navbar>
       </div>

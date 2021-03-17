@@ -1,8 +1,6 @@
-import React, { Component, useState } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import React, { Component } from 'react';
 import {
   BrowserRouter,
-  Link,
   Route,
   Switch
 } from 'react-router-dom';
@@ -23,7 +21,7 @@ class App extends Component {
               <Route path="/tutoriel" component={CodeEditor} />
               <Route path="/" component={HomeScreen} />
             </Switch>
-          </div>
+          </div> 
         </BrowserRouter>
       </div>
     );
@@ -33,7 +31,7 @@ class App extends Component {
 function HomeScreen() {
   return (
     <div>
-      <h1>Home</h1>
+      <h1 className='m-3'>Bienvenue !</h1>
       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
       eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
     </div>
