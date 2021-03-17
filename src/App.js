@@ -30,9 +30,9 @@ class App extends Component {
 
 function HomeScreen() {
   return (
-    <div>
-      <h1 className='m-3'>Bienvenue !</h1>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+    <div >
+      <h1 className='mt-3'>Bienvenue !</h1>
+      <p style={{textAlign:'center'}}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
       eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
     </div>
   );

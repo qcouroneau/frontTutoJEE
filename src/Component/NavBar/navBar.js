@@ -12,7 +12,6 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    NavbarText
   } from 'reactstrap';
 
 import Login from '../Login/login'
@@ -24,14 +23,16 @@ function NavBar() {
   
     return (
       <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Acceuil</NavbarBrand>
+        <Navbar color="dark" light expand="md">
+          <NavbarBrand href="/">
+            <span class="text-light">Acceuil</span>
+          </NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Tutoriel
+                  <span class="text-light">Tutoriel</span>
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem href="/tutoriel/Tuto1">
@@ -47,7 +48,9 @@ function NavBar() {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink href="https://github.com/qcouroneau/frontTutoJEE">GitHub</NavLink>
+                <NavLink href="https://github.com/qcouroneau/frontTutoJEE">
+                <span class="text-light">GitHub</span>
+              </NavLink>
               </NavItem>
             </Nav>
             <Login />

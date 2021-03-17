@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Modal, Form, Input, Radio } from 'antd';
+import { Button, Modal, Form, Input } from 'antd';
 import "antd/dist/antd.css";
 
 class Login extends React.Component {

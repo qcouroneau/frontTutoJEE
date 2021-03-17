@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from 'reactstrap';
 
 function NavButton() {
     return (
-        <Container>
+        <Container style={{textAlign:'center'}}>
             <Row>
                 <Col>
                     <Button color="secondary" size="lg">Cours Précédent</Button>
