@@ -1,33 +1,15 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import {
-    BrowserRouter,
-    Link,
-    Route,
-    Switch
+  BrowserRouter,
+  Link,
+  Route,
+  Switch
 } from 'react-router-dom';
 import logo from './index.png';
 import './App.css';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
-} from 'reactstrap';
+import CodeEditor from './Component/CodeEditor/codeEditor'
+import NavBar from './Component/NavBar/navBar'
 
-import CodeMirror from '@uiw/react-codemirror';
-import 'codemirror/addon/display/autorefresh';
-import 'codemirror/addon/comment/comment';
-import 'codemirror/addon/edit/matchbrackets';
-import 'codemirror/keymap/sublime';
-import 'codemirror/theme/monokai.css';
 
 class App extends Component {
   render() {
@@ -41,8 +23,8 @@ class App extends Component {
           <div>
             <NavBar></NavBar>
             <Switch>
-              <Route path="/tutoriel" component={AboutScreen}/>
-              <Route path="/" component={HomeScreen}/>
+              <Route path="/tutoriel" component={CodeEditor} />
+              <Route path="/" component={HomeScreen} />
             </Switch>
           </div>
         </BrowserRouter>
@@ -60,62 +42,6 @@ function HomeScreen() {
     </div>
   );
 }
-function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen);
-
-  return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Home</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/tutoriel">Tutoriel</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/qcouroneau/frontTutoJEE">GitHub</NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Compte
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Option
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-          <NavbarText>Simple Text</NavbarText>
-        </Collapse>
-      </Navbar>
-    </div>
-  );
-}
-
-
-
-function AboutScreen() {
-  return (
-    <CodeMirror
-value="CUL"//{code}
-options={{
-  theme: 'monokai',
-  keyMap: 'sublime',
-  mode: 'jsx',
-}}
-/>
-  );
-}
 
 export default App;
