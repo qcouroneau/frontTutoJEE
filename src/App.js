@@ -1,24 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 import {
   BrowserRouter,
   Link,
   Route,
   Switch
 } from 'react-router-dom';
-import logo from './index.png';
+
 import './App.css';
+
 import CodeEditor from './Component/CodeEditor/codeEditor'
 import NavBar from './Component/NavBar/navBar'
-
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
         <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
           <div>
             <NavBar></NavBar>
@@ -43,5 +40,32 @@ function HomeScreen() {
   );
 }
 
+function CodingScreen() {
+  return (
+    <Container fluid>
+      <Row>
+        <Col>
+          <CodeMirror
+            value="CUL"//{code}
+            options={{
+              theme: 'monokai',
+              keyMap: 'sublime',
+              fullScreen: true,
+              mode: 'jsx',
+            }}
+          />
+        </Col>
+        <Col>
+          <div class="card mb-4 mb-lg-0 border-primary shadow">
+            <div class="card-body">
+              <h5 class="card-title">Tutoriel Numéro 1</h5>
+              <p class="card-text">Début du Tutoriel</p>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
+}
 
 export default App;
