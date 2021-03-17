@@ -22,6 +22,13 @@ import {
   NavbarText
 } from 'reactstrap';
 
+import CodeMirror from '@uiw/react-codemirror';
+import 'codemirror/addon/display/autorefresh';
+import 'codemirror/addon/comment/comment';
+import 'codemirror/addon/edit/matchbrackets';
+import 'codemirror/keymap/sublime';
+import 'codemirror/theme/monokai.css';
+
 class App extends Component {
   render() {
     return (
@@ -32,6 +39,7 @@ class App extends Component {
         </div>
         <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
           <div>
+            <NavBar></NavBar>
             <ul className="nav">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/blog">Blog</Link></li>
@@ -58,7 +66,48 @@ function HomeScreen() {
     </div>
   );
 }
+function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggle = () => setIsOpen(!isOpen);
+
+  return (
+    <div>
+      <Navbar color="light" light expand="md">
+        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <NavLink href="/components/">Components</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Options
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  Option 1
+                </DropdownItem>
+                <DropdownItem>
+                  Option 2
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                  Reset
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+          <NavbarText>Simple Text</NavbarText>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
+}
 function BlogScreen() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -104,11 +153,14 @@ function BlogScreen() {
 
 function AboutScreen() {
   return (
-    <div>
-      <h1>About</h1>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-      eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
+    <CodeMirror
+value="CUL"//{code}
+options={{
+  theme: 'monokai',
+  keyMap: 'sublime',
+  mode: 'jsx',
+}}
+/>
   );
 }
 
