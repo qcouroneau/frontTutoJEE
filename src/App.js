@@ -40,14 +40,8 @@ class App extends Component {
         <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
           <div>
             <NavBar></NavBar>
-            <ul className="nav">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/about">About</Link></li>
-            </ul>
             <Switch>
-              <Route path="/blog" component={BlogScreen}/>
-              <Route path="/about" component={AboutScreen}/>
+              <Route path="/tutoriel" component={AboutScreen}/>
               <Route path="/" component={HomeScreen}/>
             </Switch>
           </div>
@@ -74,23 +68,23 @@ function NavBar() {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarBrand href="/">Home</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href="/tutoriel">Tutoriel</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink href="https://github.com/qcouroneau/frontTutoJEE">GitHub</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                Options
+                Compte
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  Option 1
+                  Option
                 </DropdownItem>
                 <DropdownItem>
                   Option 2
@@ -108,48 +102,8 @@ function NavBar() {
     </div>
   );
 }
-function BlogScreen() {
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen);
 
-  return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Option 1
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-          <NavbarText>Simple Text</NavbarText>
-        </Collapse>
-      </Navbar>
-    </div>
-  );
-}
 
 function AboutScreen() {
   return (
