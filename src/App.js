@@ -9,27 +9,8 @@ import {
 
 import './App.css';
 
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
-} from 'reactstrap';
-
-import CodeMirror from '@uiw/react-codemirror';
-import 'codemirror/addon/display/autorefresh';
-import 'codemirror/addon/comment/comment';
-import 'codemirror/addon/edit/matchbrackets';
-import 'codemirror/keymap/sublime';
-import 'codemirror/theme/monokai.css';
+import CodeEditor from './Component/CodeEditor/codeEditor'
+import NavBar from './Component/NavBar/navBar'
 
 class App extends Component {
   render() {
@@ -39,7 +20,7 @@ class App extends Component {
           <div>
             <NavBar></NavBar>
             <Switch>
-              <Route path="/tutoriel" component={CodingScreen} />
+              <Route path="/tutoriel" component={CodeEditor} />
               <Route path="/" component={HomeScreen} />
             </Switch>
           </div>
@@ -55,48 +36,6 @@ function HomeScreen() {
       <h1>Home</h1>
       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
       eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
-  );
-}
-function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
-
-  return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Home</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/tutoriel">Tutoriel</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/qcouroneau/frontTutoJEE">GitHub</NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Compte
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Option
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-          <NavbarText>Simple Text</NavbarText>
-        </Collapse>
-      </Navbar>
     </div>
   );
 }
@@ -120,27 +59,6 @@ function CodingScreen() {
           <div class="card mb-4 mb-lg-0 border-primary shadow">
             <div class="card-body">
               <h5 class="card-title">Tutoriel Numéro 1</h5>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-              <p class="card-text">Début du Tutoriel</p>
-
-              <p class="card-text">Début du Tutoriel</p>
               <p class="card-text">Début du Tutoriel</p>
             </div>
           </div>
