@@ -6,8 +6,7 @@ import 'codemirror/addon/comment/comment';
 import 'codemirror/addon/edit/matchbrackets';
 import 'codemirror/keymap/sublime';
 import 'codemirror/theme/monokai.css';
-  
-
+import 'codemirror/lib/codemirror.css';
 
 import NavButton from './navButton'
 
@@ -17,7 +16,7 @@ class CodeEditor extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
-      code: '{"state":1, "msg":"success"}',
+      code: 'import com.demo.util.MyInterface;',
     }
   }
   handleChange(newCode) {
@@ -28,7 +27,7 @@ class CodeEditor extends Component {
     const options = {
       theme: 'monokai',
       keyMap: 'sublime',
-      mode: 'javascript',
+      mode: 'java',
       lineNumbers: true
   };
     return (

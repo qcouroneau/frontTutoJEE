@@ -8,11 +8,10 @@ import {
   Row, Col, Container
 } from 'reactstrap';
 import './App.css';
-import './home.css'
+import './home.css';
 import CodeEditor from './Component/CodeEditor/codeEditor'
 import NavBar from './Component/NavBar/navBar'
 import place_holder from './images/place_holder.png'
-import photo_group from './images/photo_group.png'
 import tim from './images/tim_frame.png';
 import melissa from './images/melissa_frame.png';
 import nguyen from './images/nguyen_frame.png';
@@ -54,7 +53,7 @@ function HomeScreen() {
   
   return (
     <Container id="How" fluid>
-    <Row>
+    <Row id="RowMenu">
       <Col className="step_box">
           <img className="step_images" alt="step one" src={step_one} />
           <br />
@@ -112,7 +111,7 @@ function About(){
   return (
                 <Container id="About" fluid>
                 <div id="about">
-                    <Row>
+                    <Row id="RowMenu">
                         <Col id="about_image"><img className="placeHolder" alt="video_example" src={place_holder} /></Col>
                         <Col>
                             <h4 id="about_description_title">What is Measureyes and how can it help your business?</h4>
