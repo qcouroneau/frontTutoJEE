@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import CodeMirror from '@uiw/react-codemirror';
-import 'codemirror/keymap/sublime';
+
+import CodeMirror from '@uiw/react-codemirror'; 
+import 'codemirror/addon/display/autorefresh'; 
+import 'codemirror/addon/comment/comment'; 
+import 'codemirror/addon/edit/matchbrackets'; 
+import 'codemirror/keymap/sublime'; 
 import 'codemirror/theme/monokai.css';
-import 'codemirror/lib/codemirror.css';
 import NavButton from './navButton'
 
 import TreeView from 'reactjs-treeview';
@@ -113,17 +116,17 @@ class CodeEditor extends Component {
         <Container className='my-5' fluid>
           <Row>
             <Col>
-                <TreeView
-                  initialData={treeData}
-                  onExpandNode={this.onExpandNode}
-                  onCollapseNode={this.onCollapseNode}
-                  onClickNode={this.onClickNode}
-                  style={{
-                    backgroundColor: '#e5e5e5',
-                    width: 300,
-                    height: window.innerHeight,
-                  }}
-                />
+              <TreeView
+                initialData={treeData}
+                onExpandNode={this.onExpandNode}
+                onCollapseNode={this.onCollapseNode}
+                onClickNode={this.onClickNode}
+                style={{
+                  backgroundColor: '#e5e5e5',
+                  width: 300,
+                  height: window.innerHeight,
+                }}
+              />
             </Col>
             <Col>
               <CodeMirror
