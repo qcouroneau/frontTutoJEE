@@ -135,13 +135,24 @@ font-family: 'Open Sans', sans-serif; */
     display: grid;
     justify-content: center;
     align-items: center;
-    width: 212px;
 }
 
-.step_images {
-    height: 212px;
-    width: 200px;
-    padding-bottom: 1.5rem;
+.step_images1 {
+    height: 150px;
+    width: 32%;
+    padding: 1.5rem;
+}
+
+.step_images2 {
+    height: 150px;
+    width: 65%;
+    padding: 1.5rem;
+}
+
+.step_images3 {
+    height: 150px;
+    width: 50%;
+    padding: 1.5rem;
 }
 
 .step_number {

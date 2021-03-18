@@ -84,6 +84,7 @@ function FileIcon() {
 class CodeEditor extends Component {
   state = {
     history: [],
+    code: ''
   };
   addHistory = (text) => {
     this.setState((state) => {
@@ -106,39 +107,41 @@ class CodeEditor extends Component {
   };
   render() {
     const options = {
-      theme: 'monokai',
       keyMap: 'sublime',
-      mode: "text/x-java",
+      mode: "javascript",
       lineNumbers: true
     };
     return (
-      <div>
-        <h2>Titre du Chapitre</h2>
+      <div class="mt-3">
+        <h2>Les servlets</h2>
         <Container className='my-5' fluid>
           <Row>
             <Col xs="2">
+            <div class="card mb-4 mb-lg-0 border-secondary shadow">
               <TreeView
                 initialData={treeData}
                 onExpandNode={this.onExpandNode}
                 onCollapseNode={this.onCollapseNode}
                 onClickNode={this.onClickNode}
                 style={{
-                  backgroundColor: '#e5e5e5',
                   padding: '20px',
                 }}
               />
+              </div>
             </Col>
             <Col xs="5">
+            <div class="card mb-4 mb-lg-0 border-secondary shadow">
               <CodeMirror
                 value={this.state.code}
                 onChange={this.handleChange}
                 options={options}
               />
+              </div>
             </Col>
             <Col xs="5">
-              <div class="card mb-4 mb-lg-0 border-primary shadow">
+              <div class="card mb-4 mb-lg-0 border-secondary shadow">
                 <div class="card-body">
-                  <h5 class="card-title">Cours Numéro 1</h5>
+                  <h5 class="card-title">Les bases</h5>
                   <p class="card-text">Une servlet est un composant qui étend les fonctionnalités d'un serveur web de
                   manière portable et efficace.
                   Un serveur web héberge des classes Java servlets qui sont exécutées à

@@ -11,16 +11,16 @@ import './App.css';
 import './home.css';
 import CodeEditor from './Component/CodeEditor/codeEditor'
 import NavBar from './Component/NavBar/navBar'
-import place_holder from './images/place_holder.png'
+import javaee from './images/javaee.png'
 import tim from './images/tim_frame.png';
 import melissa from './images/melissa_frame.png';
 import nguyen from './images/nguyen_frame.png';
 import claudia from './images/claudia_frame.png';
 import linkedin_white from './images/linkedin_white.png';
 
-import step_one from './images/camera_icon.png'
-import step_two from './images/data_icon.png'
-import step_three from './images/alert_icon.png'
+import react from './images/react.svg'
+import spring from './images/spring.svg'
+import hibernate from './images/hibernate-1.svg'
 
 class App extends Component {
   render() {
@@ -45,7 +45,6 @@ function Home() {
     <div>
       <About></About>
       <HomeScreen></HomeScreen>
-      <Team></Team>
     </div>
   );
 }
@@ -53,24 +52,27 @@ function HomeScreen() {
   
   return (
     <Container id="How" fluid>
+    <Row class="mb-3" id="RowMenu">
+      <div className="step_number">Les technologies utilisées :</div>
+    </Row>
     <Row id="RowMenu">
       <Col className="step_box">
-          <img className="step_images" alt="step one" src={step_one} />
+          <img className="step_images1" alt="react" src={react} />
           <br />
-          <div className="step_number">STEP 1</div>
-          <p className="step_descriptions">Cameras are installed in optimized areas and set-up to record the number of pedestrians giving your displays attention.</p>
+          <div className="step_number">React JS</div>
+          <p className="step_descriptions">Bibliothèque ayant pour but de faciliter la création d'application web monopage, via la création de composants dépendant d'un état et générant une page (ou portion) HTML à chaque changement d'état.</p>
       </Col>
       <Col className="step_box">
-          <img className="step_images" alt="step two" src={step_two} />
+          <img className="step_images2" alt="spring" src={spring} />
           <br />
-          <div className="step_number">STEP 2</div>
-          <p className="step_descriptions">Data is collected from pedestrians to determine the head-turn rate and is displayed on a web dashboard.</p>
+          <div className="step_number">Spring</div>
+          <p className="step_descriptions">Framework open source pour construire et définir l'infrastructure d'une application Java, dont il facilite le développement et les tests.</p>
       </Col>
       <Col className="step_box">
-          <img className="step_images" alt="step three" src={step_three} />
+          <img className="step_images3" alt="hibernate" src={hibernate} />
           <br />
-          <div className="step_number">STEP 3</div>
-          <p className="step_descriptions">The web dashboard will alert the owner when statistical significance is achieved and provides results in real time.</p>
+          <div className="step_number">Hibernate</div>
+          <p className="step_descriptions">Framework open source gérant la persistance des objets en base de données relationnelle. Hibernate apporte une solution aux problèmes d'adaptation entre le paradigme objet et les SGBD en remplaçant les accès à la base de données par des appels à des méthodes objet de haut niveau.</p>
       </Col>
     </Row>
   </Container>
@@ -112,7 +114,7 @@ function About(){
                 <Container id="About" fluid>
                 <div id="about">
                     <Row id="RowMenu">
-                        <Col id="about_image"><img className="placeHolder" alt="video_example" src={place_holder} /></Col>
+                        <Col id="about_image"><img className="placeHolder" alt="video_example" src={javaee} /></Col>
                         <Col>
                             <h4 id="about_description_title">What is Measureyes and how can it help your business?</h4>
                             <div id="about_description">
