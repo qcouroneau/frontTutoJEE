@@ -1,35 +1,111 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import CodeMirror from '@uiw/react-codemirror';
-import 'codemirror/addon/display/autorefresh';
-import 'codemirror/addon/comment/comment';
-import 'codemirror/addon/edit/matchbrackets';
 import 'codemirror/keymap/sublime';
 import 'codemirror/theme/monokai.css';
 import 'codemirror/lib/codemirror.css';
-
 import NavButton from './navButton'
 
+import TreeView from 'reactjs-treeview';
+import Folder from '../icon/folder.svg'
+import File from '../icon/file.svg'
+
+const styleOfFile = { marginLeft: '0px', marginRight: '5px' };
+const styleOfFolder = { marginLeft: '5px', marginRight: '5px' };
+
+const treeData = [
+  {
+    icon: <FolderIcon />,
+    title:
+      'This is a folder that has really really really really really really long name',
+    childrenNode: ['README.md', '_test_.js'].map((x) => ({
+      icon: <FileIcon />,
+      title: x,
+    })),
+  },
+  {
+    icon: <FolderIcon />,
+    title: 'folder A',
+    childrenNode: ['a.css', 'b.js', 'c.txt'].map((x) => ({
+      icon: <FileIcon />,
+      title: x,
+    })),
+    isExpanded: true,
+  },
+  {
+    icon: <FileIcon />,
+    title: 'index.js',
+  },
+  {
+    icon: <FolderIcon />,
+    title: 'folder B',
+    childrenNode: [
+      {
+        icon: <FileIcon />,
+        title: 'index.js',
+      },
+      {
+        icon: <FolderIcon />,
+        title: 'components',
+        // isExpanded: true,
+        childrenNode: [
+          {
+            icon: <FileIcon />,
+            title: 'Button.js',
+          },
+          {
+            icon: <FolderIcon />,
+            title: 'TextInput',
+            isExpanded: true,
+            childrenNode: [
+              'InputNumber.js',
+              'InputDate.js',
+              'Input.js',
+            ].map((x) => ({ icon: <FileIcon />, title: x })),
+          },
+        ],
+      },
+    ],
+    isExpanded: true,
+  },
+];
+function FolderIcon() {
+  return <img style={styleOfFolder} src={Folder} width={18} height={18} />;
+};
+function FileIcon() {
+  return <img style={styleOfFile} src={File} width={15} height={15} />;
+};
+
+
 class CodeEditor extends Component {
+  state = {
+    history: [],
+  };
+  addHistory = (text) => {
+    this.setState((state) => {
+      return {
+        history: state.history.concat('- ' + text),
+      };
+    });
+  };
+  onExpandNode = ({ node }, updatedTree) => {
+    this.addHistory('You expanded ' + node.title);
+  };
 
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      code: 'import com.demo.util.MyInterface;',
-    }
-  }
-  handleChange(newCode) {
-    
-  }
+  onCollapseNode = ({ node }, updatedTree) => {
+    this.addHistory('You collapsed ' + node.title);
+  };
 
+  onClickNode = (e, { node }, updatedTree) => {
+    this.addHistory('You clicked ' + node.title);
+  };
   render() {
     const options = {
       theme: 'monokai',
       keyMap: 'sublime',
-      mode: 'java',
+      mode: "text/x-java",
       lineNumbers: true
-  };
+    };
     return (
       <div>
         <h1>Bienvenue sur le Tutoriel Numéro 1 Dédié au Java JEE</h1>
@@ -37,9 +113,22 @@ class CodeEditor extends Component {
         <Container className='my-5' fluid>
           <Row>
             <Col>
+                <TreeView
+                  initialData={treeData}
+                  onExpandNode={this.onExpandNode}
+                  onCollapseNode={this.onCollapseNode}
+                  onClickNode={this.onClickNode}
+                  style={{
+                    backgroundColor: '#e5e5e5',
+                    width: 300,
+                    height: window.innerHeight,
+                  }}
+                />
+            </Col>
+            <Col>
               <CodeMirror
                 value={this.state.code}
-                onChange = {this.handleChange}
+                onChange={this.handleChange}
                 options={options}
               />
             </Col>
