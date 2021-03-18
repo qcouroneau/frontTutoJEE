@@ -18,7 +18,7 @@ import Folder from '../icon/folder.svg'
 import File from '../icon/file.svg'
 import servlet from '../../images/servlet.png';
 
-require('codemirror/mode/javascript/javascript');
+require('codemirror/mode/clike/clike');
 
 const styleOfFile = { marginLeft: '0px', marginRight: '5px' };
 const styleOfFolder = { marginLeft: '5px', marginRight: '5px' };
@@ -26,29 +26,7 @@ const styleOfFolder = { marginLeft: '5px', marginRight: '5px' };
 const treeData = [
   {
     icon: <FolderIcon />,
-    title:
-      'This is a folder that has really really really really really really long name',
-    childrenNode: ['README.md', '_test_.js'].map((x) => ({
-      icon: <FileIcon />,
-      title: x,
-    })),
-  },
-  {
-    icon: <FolderIcon />,
     title: 'folder A',
-    childrenNode: ['a.css', 'b.js', 'c.txt'].map((x) => ({
-      icon: <FileIcon />,
-      title: x,
-    })),
-    isExpanded: true,
-  },
-  {
-    icon: <FileIcon />,
-    title: 'index.js',
-  },
-  {
-    icon: <FolderIcon />,
-    title: 'folder B',
     childrenNode: [
       {
         icon: <FileIcon />,
@@ -63,22 +41,17 @@ const treeData = [
             icon: <FileIcon />,
             title: 'Button.js',
           },
-          {
-            icon: <FolderIcon />,
-            title: 'TextInput',
-            isExpanded: true,
-            childrenNode: [
-              'InputNumber.js',
-              'InputDate.js',
-              'Input.js',
-            ].map((x) => ({ icon: <FileIcon />, title: x })),
-          },
         ],
       },
     ],
-    isExpanded: true,
+  },
+  {
+    icon: <FileIcon />,
+    title: 'index.js',
   },
 ];
+
+
 function FolderIcon() {
   return <img style={styleOfFolder} src={Folder} width={18} height={18} />;
 };
@@ -109,7 +82,7 @@ class CodeEditor extends Component {
 
   onClickNode = (e, { node }, updatedTree) => {
     this.addHistory('You clicked ' + node.title);
-    this.state.data = node.title;
+    this.state.code = node.title;
   };
   render() {
     return (
@@ -133,10 +106,9 @@ class CodeEditor extends Component {
             <Col xs="5">
             <div class="card mb-4 mb-lg-0 border-secondary shadow">
               <CodeMirror
-                value='function myFunction(p1, p2) {
-                  return p1 * p2;   // The function returns the product of p1 and p2 }'
+                value={this.state.code}
                 options={{
-                  mode: 'javascript',
+                  mode: 'text/x-java',
                   lineNumbers: true
                 }}
                 onChange={(editor, data, value) => {
