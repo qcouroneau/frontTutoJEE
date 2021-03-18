@@ -124,7 +124,7 @@ function About() {
               Pour aider nos programmeurs, des notions de cours seront (re)expliquées.<br />
               Aucun pré-requis n'est obligatoire mais une petite base en programmation est néamoins conseillé
               pour ne pas rester bloquer.
-               </div>
+              </div>
           </Col>
         </Row>
       </div>

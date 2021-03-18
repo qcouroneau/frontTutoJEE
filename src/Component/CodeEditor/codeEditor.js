@@ -91,7 +91,7 @@ class CodeEditor extends Component {
         <Container className='my-5' fluid>
           <Row>
             <Col xs="2">
-            <div class="card mb-4 mb-lg-0 border-secondary shadow">
+            <div id="RowEditor" class="card mb-4 mb-lg-0 border-secondary shadow">
               <TreeView
                 initialData={treeData}
                 onExpandNode={this.onExpandNode}
@@ -104,7 +104,7 @@ class CodeEditor extends Component {
               </div>
             </Col>
             <Col xs="5">
-            <div class="card mb-4 mb-lg-0 border-secondary shadow">
+            <div id="RowEditor" class="card mb-4 mb-lg-0 border-secondary shadow">
               <CodeMirror
                 value={this.state.code}
                 options={{
@@ -117,7 +117,7 @@ class CodeEditor extends Component {
               </div>
             </Col>
             <Col xs="5">
-              <div class="card mb-4 mb-lg-0 border-secondary shadow">
+              <div id="RowEditor" class="card mb-4 mb-lg-0 border-secondary shadow">
                 <div class="card-body">
                   <h5 class="card-title">Les bases</h5>
                   <p class="card-text">Une servlet est un composant qui étend les fonctionnalités d'un serveur web de
@@ -149,6 +149,7 @@ class CodeEditor extends Component {
                         <img style={{ width: '100%' }} alt="servlet" src={servlet} />
                       </Col>
                     </Row>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In efficitur nisi quis urna suscipit fringilla. Sed vitae velit non nibh imperdiet efficitur in et turpis. Donec tempus a arcu at sagittis. Nunc at dignissim leo, at tincidunt felis. Aenean lobortis dui vitae lorem euismod aliquet. Pellentesque ultrices ullamcorper risus, nec aliquam quam pulvinar a. Nulla malesuada bibendum est nec egestas. Ut aliquam accumsan volutpat. Vestibulum vitae consequat elit, et sollicitudin neque. Nunc metus libero, porttitor luctus sapien eu, posuere cursus quam. Pellentesque auctor neque at odio suscipit, ac tempus mauris varius. Suspendisse hendrerit nunc massa, nec bibendum libero fringilla et. Mauris eleifend ante et mi cursus, sed scelerisque dui condimentum. Integer ac ex non libero placerat dignissim. Donec non venenatis quam. Aenean vitae leo nibh.  Phasellus tristique, nisl et mollis congue, sem nulla ullamcorper nibh, cursus condimentum odio tellus a nisl. Nam eros dolor, sodales ultrices pulvinar vitae, blandit sit amet tellus. Suspendisse pulvinar nulla justo, non placerat odio bibendum eu. Praesent orci felis, pretium ac urna quis, venenatis malesuada ante. Donec non libero ultrices, lacinia quam ac, feugiat tortor. Pellentesque mollis vel ligula sodales vulputate. Aenean arcu ipsum, iaculis ut egestas sit amet, imperdiet at tellus. Aliquam erat volutpat. Nunc ac odio auctor, tincidunt est at, bibendum nisi. Integer sit amet molestie leo. Nam dignissim felis non enim varius dictum. Nulla nec libero in augue hendrerit posuere ac et sapien. Morbi dapibus tempus mi, sit amet venenatis dui luctus at. </p>
                     <Row>
                     <NavButton />
                     </Row>
