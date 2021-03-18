@@ -149,13 +149,15 @@ class CodeEditor extends Component {
                         <img style={{ width: '100%' }} alt="servlet" src={servlet} />
                       </Col>
                     </Row>
+                    <Row>
+                    <NavButton />
+                    </Row>
                   </Container>
                 </div>
               </div>
             </Col>
           </Row>
         </Container>
-        <NavButton />
       </div>
     );
   }
