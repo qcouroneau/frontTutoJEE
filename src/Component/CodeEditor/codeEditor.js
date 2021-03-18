@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
-import CodeMirror from '@uiw/react-codemirror';
+
+import {UnControlled as CodeMirror} from 'react-codemirror2';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/material.css';
 import 'codemirror/addon/display/autorefresh';
 import 'codemirror/addon/comment/comment';
 import 'codemirror/addon/edit/matchbrackets';
 import 'codemirror/keymap/sublime';
 import 'codemirror/theme/monokai.css';
+
 import NavButton from './navButton'
 
 import TreeView from 'reactjs-treeview';
 import Folder from '../icon/folder.svg'
 import File from '../icon/file.svg'
 import servlet from '../../images/servlet.png';
+
+require('codemirror/mode/javascript/javascript');
 
 const styleOfFile = { marginLeft: '0px', marginRight: '5px' };
 const styleOfFolder = { marginLeft: '5px', marginRight: '5px' };
@@ -102,15 +108,9 @@ class CodeEditor extends Component {
 
   onClickNode = (e, { node }, updatedTree) => {
     this.addHistory('You clicked ' + node.title);
-    this.state.code = node.title;
+    this.state.data = node.title;
   };
   render() {
-    const options = {
-      theme: 'monokai',
-      keyMap: 'sublime',
-      mode: "text/x-java",
-      lineNumbers: true
-    };
     return (
       <div>
         <h2>Titre du Chapitre</h2>
@@ -130,9 +130,15 @@ class CodeEditor extends Component {
             </Col>
             <Col xs="5">
               <CodeMirror
-                value={this.state.code}
-                onChange={this.handleChange}
-                options={options}
+                value='function myFunction(p1, p2) {
+                  return p1 * p2;   // The function returns the product of p1 and p2 }'
+                options={{
+                  mode: 'javascript',
+                  theme: 'material',
+                  lineNumbers: true
+                }}
+                onChange={(editor, data, value) => {
+                }}
               />
             </Col>
             <Col xs="5">
