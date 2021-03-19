@@ -13,7 +13,7 @@ import CodeEditor from './Component/CodeEditor/codeEditor'
 import NavBar from './Component/NavBar/navBar'
 import javaee from './images/javaee.png'
 
-// import tim from './images/tim_frame.png'; // a changer
+import paul from './images/paul.PNG';
 import quentin from './images/quentin.jpg';
 import ismail from './images/ismail.jpg';
 import pierre from './images/pierre.png';
@@ -105,7 +105,7 @@ function Team() {
         </Col>
         <Col className="team_div">
           <div style={{ textAlign: 'right' }} className="team_headers">Developer</div>
-          
+          <img alt="paul" src={paul } />
           <div className="linked_descriptions"><a href="https://www.linkedin.com/in/paul-lhermite-a8432519b/">Paul Lhermite  <img alt="linkedin_icon" className="linkedin_white" src={linkedin_white}></img></a></div>
         </Col>
       </div>
