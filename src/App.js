@@ -12,10 +12,11 @@ import './home.css';
 import CodeEditor from './Component/CodeEditor/codeEditor'
 import NavBar from './Component/NavBar/navBar'
 import javaee from './images/javaee.png'
-import tim from './images/tim_frame.png';
-import melissa from './images/melissa_frame.png';
-import nguyen from './images/nguyen_frame.png';
-import claudia from './images/claudia_frame.png';
+
+// import tim from './images/tim_frame.png'; // a changer
+import quentin from './images/quentin.jpg';
+import ismail from './images/ismail.jpg';
+import pierre from './images/pierre.png';
 import linkedin_white from './images/linkedin_white.png';
 
 import react from './images/react.svg'
@@ -44,7 +45,9 @@ function Home() {
   return (
     <div>
       <About></About>
+      <Tuto></Tuto>
       <HomeScreen></HomeScreen>
+      <Team></Team>
     </div>
   );
 }
@@ -82,33 +85,34 @@ function HomeScreen() {
 function Team() {
   return (
     <Container id="Team" fluid>
-      <h1 id="team_header">MEET THE TEAM</h1>
+      <h1 id="team_header">L'équipe</h1>
       <div id="team_photos">
         <Col className="team_div">
           <div className="team_headers">Developer</div>
-          <img alt="claudia" src={claudia} />
+          <img alt="ismail" src={ismail} />
           <div className="linked_descriptions">
-            <a href="https://www.linkedin.com/in/claudia-ligidakis/">CLAUDIA LIGIDAKIS  <img alt="linkedin_icon" className="linkedin_white" src={linkedin_white}></img></a></div>
+            <a href="https://www.linkedin.com/in/ismail-bencheikh/">Ismail Bencheikh  <img alt="linkedin_icon" className="linkedin_white" src={linkedin_white}></img></a></div>
         </Col>
         <Col className="team_div">
-          <div style={{ textAlign: 'center' }} className="team_headers">Data Scientist</div>
-          <img alt="nguyen" src={nguyen} />
-          <div className="linked_descriptions"><a href="https://www.linkedin.com/in/nguyenmngo/">NGUYEN NGO  <img alt="linkedin_icon" className="linkedin_white" src={linkedin_white}></img></a></div>
+          <div style={{ textAlign: 'center' }} className="team_headers">Developer</div>
+          <img alt="pierre" src={pierre} />
+          <div className="linked_descriptions"><a href="https://www.linkedin.com/in/pierre-vantrepotte-b732121b5/">Pierre Ventrepotte  <img alt="linkedin_icon" className="linkedin_white" src={linkedin_white}></img></a></div>
         </Col>
         <Col className="team_div">
-          <div style={{ textAlign: 'center' }} className="team_headers">Project Manager</div>
-          <img alt="tim" src={tim} />
-          <div className="linked_descriptions"><a href="https://www.linkedin.com/in/timsteines/">TIM STEINES  <img alt="linkedin_icon" className="linkedin_white" src={linkedin_white}></img></a></div>
+          <div style={{ textAlign: 'center' }} className="team_headers">Developer</div>
+          <img alt="quentin" src={quentin} />
+          <div className="linked_descriptions"><a href="https://www.linkedin.com/in/quentin-couroneaumortreuil/">Quentin Couroneau  <img alt="linkedin_icon" className="linkedin_white" src={linkedin_white}></img></a></div>
         </Col>
         <Col className="team_div">
-          <div style={{ textAlign: 'right' }} className="team_headers">UI/UX Designer</div>
-          <img alt="melissa" src={melissa} />
-          <div className="linked_descriptions"><a href="https://www.linkedin.com/in/melissamkaiser/">MELISSA KAISER  <img alt="linkedin_icon" className="linkedin_white" src={linkedin_white}></img></a></div>
+          <div style={{ textAlign: 'right' }} className="team_headers">Developer</div>
+          
+          <div className="linked_descriptions"><a href="https://www.linkedin.com/in/paul-lhermite-a8432519b/">Paul Lhermite  <img alt="linkedin_icon" className="linkedin_white" src={linkedin_white}></img></a></div>
         </Col>
       </div>
     </Container>
   )
 }
+
 function About() {
   return (
     <Container id="About" fluid>
@@ -131,4 +135,23 @@ function About() {
     </Container>
   )
 }
+
+function Tuto() {
+  return (
+    <Container id="Tuto" fluid>
+      <div id="tuto">
+        <Row id="RowMenu">
+          <Col>
+            <h4 >Comment utiliser ce site ?</h4>
+            <div>
+              <p>En navigant grâce à la barre de navigation du site, vous pouvez vous rendre sur les différents tutoriels proposé. Chacun d'entre eux est composé de plusieurs cours et d'exercices. Ces exercives vont vous demander de proposer du code pour faire valider votre compréhension de la notion abordée.</p>
+              <p>Dès lors que vous validez l'exercice, vous pouvez ensuite passer au cours suivant. Puis de tutoriel en tutoriel.</p>
+            </div>
+          </Col>
+        </Row>
+      </div>
+    </Container>
+  )
+}
+
 export default App;

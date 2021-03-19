@@ -42,7 +42,6 @@ font-family: 'Open Sans', sans-serif; */
 /* Hero Image */
 
 .jumbotron {
-    background-image: url('images/hero.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -85,6 +84,14 @@ font-family: 'Open Sans', sans-serif; */
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 100px;
+}
+
+#tuto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding-bottom: 100px;
 }
 
@@ -184,6 +191,12 @@ font-family: 'Open Sans', sans-serif; */
 #RowMenu {
     justify-content: center;
     align-items: center;
+}
+
+#RowPresentaion {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 #RowEditor {
