@@ -187,8 +187,21 @@ font-family: 'Open Sans', sans-serif; */
 }
 
 #RowEditor {
+    max-height: 65em;
     height: 75%;
-    overflow-y: scroll;
+    overflow-y: scroll; 
+}
+
+.CodeMirror {   
+    height: 100% !important;
+    word-break: break-word;
+}
+
+#RunButton {
+    display: table;
+    margin: 0 auto; 
+    width: 90%;
+    margin-top: 25px;
 }
 
 
